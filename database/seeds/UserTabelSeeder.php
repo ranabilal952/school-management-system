@@ -1,0 +1,35 @@
+<?php
+
+use App\Models\User;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
+class UserTabelSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@mail.com',
+            'password' => '1234',
+            'type' =>'1'
+        ]);
+        DB::table('grades')->insert([
+    ['classname'=>'A'],
+    ['classname'=>'B'],
+    ['classname'=>'C'],
+    ['classname'=>'D'],
+    ['classname'=>'E'],
+    ['classname'=>'F']
+        ]);       
+        //  DB::table('sections')->insert([
+        //   ['name'=>'sectiona','roomno'=>'11','grade_id'=>'2','user_id'=>'2','rank'=>'11','capacity'=>'110']
+        // ]);
+    }
+}
