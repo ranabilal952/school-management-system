@@ -45,7 +45,7 @@
       <div class="topbar-left">
         <div class="text-center">
           <!--<a href="index.html" class="logo">Admiry</a>-->
-        <a href="{{route('dashboard')}}" class="logo"><img src="{{asset('images/logo.jpg')}}" height="112" alt="logo"></a>
+        {{-- <a href="{{route('dashboard')}}" class="logo"><img src="{{asset('images/logo.jpg')}}" height="112" alt="logo"></a> --}}
         </div>
       </div>
 
@@ -61,7 +61,9 @@
               @if (Auth::user()->type=='1')
               ADMIN PANEL
               @elseif(Auth::user()->type=='2')
-              Teacher PANEL
+              Teacher PANEL 
+              @elseif(Auth::user()->type=='4')
+              Super Admin PANEL
               @else
               Student PANEL
               @endif
@@ -83,7 +85,7 @@
                   <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-buffer"></i> <span> Students </span> </a>
                   <ul class="list-unstyled">
                   <li><a href="{{route('student.index')}}">Add Students</a></li>
-                  <li><a href="{{('promote')}}">Promote student</a></li>
+                  <li><a href="{{route('promote.index')}}">Promote student</a></li>
                   </ul>
               </li>
               <li>
@@ -255,10 +257,49 @@
               @elseif(Auth::user()->type=='2')           
                <li class="has_sub">
                   <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> User Management </span></a>
+              </li>              
+               @elseif(Auth::user()->type=='3')           
+               <li class="has_sub">
+               <a href="" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> User Management </span></a>
+              </li>  
+              @elseif(Auth::user()->type=='4')           
+              <li>
+              <a href="{{route('school.create')}}" class="waves-effect">
+                <i class="mdi mdi-buffer"></i>
+                        <span> Manage School <span class="badge badge-primary pull-right"></span></span>
+                    </a>
+                </li>            
+              <li class="has_sub">
+                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-clipboard-outline"></i><span> Mana Payment </span></a>
+                <ul class="list-unstyled">
+                <li><a href="">Monthly Income</a></li>
+                <li><a href="">Monthly Expenses</a></li>
+                </ul>
+            </li>    
+               <li class="has_sub">
+                  <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-clipboard-outline"></i><span> Current School List </span></a>
+              </li>  
+              <li class="has_sub">
+                  <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-album"></i><span> Class List Per School </span></a>
+              </li>  
+              <li class="has_sub">
+                  <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> Packages </span></a>
+              </li> 
+              <li class="has_sub">
+                  <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-buffer"></i><span> User Roles </span></a>
+              </li>              
+               <li class="has_sub">
+                  <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-clipboard-outline"></i><span> Permission Controles </span></a>
+              </li>             
+                <li class="has_sub">
+                  <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-clipboard-outline"></i><span> School Activation </span></a>
+              </li>                 
+              <li class="has_sub">
+                  <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-clipboard-outline"></i><span> School Termination </span></a>
               </li> 
               @else	            
                <li class="has_sub">
-                  <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span> User Management </span></a>
+                  <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Packages </span></a>
               </li>
               @endif
           </ul>

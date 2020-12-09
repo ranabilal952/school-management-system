@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Promote;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class PromoteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        return view('')
     }
 
     /**
@@ -25,7 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('teacher.teachercreate');
+        //
     }
 
     /**
@@ -36,18 +35,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        User::create($request->all());
-        toastr()->success('Save');
-        return redirect()->back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\user  $user
+     * @param  \App\Models\Promote  $promote
      * @return \Illuminate\Http\Response
      */
-    public function show(user $user)
+    public function show(Promote $promote)
     {
         //
     }
@@ -55,46 +52,34 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\user  $user
+     * @param  \App\Models\Promote  $promote
      * @return \Illuminate\Http\Response
      */
-    public function edit(user $user)
+    public function edit(Promote $promote)
     {
-        return view('teacher.edit')->with('user',$user);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\user  $user
+     * @param  \App\Models\Promote  $promote
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, user $user)
+    public function update(Request $request, Promote $promote)
     {
-        $user->update($request->all());
-        return view('teacher.allteacher');
-        // if(Auth::user()->type=='1')
-        // return view('teacher.allteacher');
-
-        // elseif(Auth::user()->type=='2')
-        // return view('teacher.allteacher');
-
-        // else
-        // return view('teacher.allteacher');
-
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\user  $user
+     * @param  \App\Models\Promote  $promote
      * @return \Illuminate\Http\Response
      */
-    public function destroy(user $user)
+    public function destroy(Promote $promote)
     {
-        $user->delete();
-        toastr()->error('deleted');
-        return redirect()->back();
+        //
     }
 }

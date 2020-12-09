@@ -58,6 +58,10 @@ class User extends Authenticatable
    public static function Student()
    {
    return (new static)::where('type','3')->get();
+   }
+    public static function Superadmin()
+   {
+   return (new static)::where('type','4')->get();
    } 
    public function setImageAttribute($value)
    {    

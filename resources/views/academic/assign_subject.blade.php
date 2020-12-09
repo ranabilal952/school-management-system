@@ -32,7 +32,7 @@ Assign subject Add
                                                 <select name="grade_id" class="form-control" required>
                                                     <option value="">--Select--</option>
                                                     @foreach (App\Models\::all() as $grade)
-                                                  <option value="{{$grade->id}}">{{$grade->classname}}</option>     
+                                                     <option value="{{$grade->id}}">{{$grade->classname}}</option>     
                                                     @endforeach
                                                   </select>
                                             </div>

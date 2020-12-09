@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title')
-Teacher New Add
+ All Student 
 @endsection
 @section('content')
 <div class="page-content-wrapper ">
@@ -21,7 +21,7 @@ Teacher New Add
 
                                 <p class="text-muted m-b-30 font-14">
                                     <a href="{{route('student.create')}}"><button class="btn btn-danger right"> <i
-                                                class="fa fa-plus"></i> Create Teacher</button></a>
+                                                class="fa fa-plus"></i> Create Student</button></a>
                                 </p>
 
                                 <table id="datatable" class="table table-bordered dt-responsive nowrap" cellspacing="0"
@@ -29,23 +29,32 @@ Teacher New Add
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Teacher Name</th>
-                                            <th>Teacher Email</th>
-                                            <th>Designation</th>
-                                            <th>Image</th>
+                                            <th>Profile</th>
+                                            <th>Roll No </th>
+                                            <th>Name</th>
+                                            <th>Teacher</th>
+                                            <th>Class</th>
+                                            <th>Section</th>
+                                            <th>Email</th>
+                                            <th>ID Card NO </th>
                                             <th>Action</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
-                                        @foreach (App\Models\User::Teacher() as $key => $user)
+                                        @foreach (App\Models\User::Student() as $key => $user)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$user->name}}</td>
-                                            <td>{{$user->email}}</td>
-                                            <td>{{$user->designation}}</td>
                                             <td><img src="{{$user->image}}" width="50" height="50" /><style>img {border:; }</style> </td>
+                                            <td>{{$user->rollno}}</td>
+                                            <td>{{$user->name}}</td>
+                                            <td>{{$user->teacher_id}}</td>
+                                            <td>{{$user->grade_id}}</td>
+                                            <td>{{$user->section_id}}</td>
+                                            <td>{{$user->email}}</td>
+                                            <td>{{$user->idcard}}</td>
+                                            
                                     <td>
                                         <form action="{{route('user.destroy',$user->id)}}" method="POST">
                                             @method('DELETE')

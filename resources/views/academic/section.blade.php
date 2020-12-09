@@ -40,7 +40,7 @@ Class Add
                                                 <select name="grade_id" class="form-control" required>
                                                     <option value="">--Select--</option>
                                                     @foreach (App\Models\Grade::all() as $grade)
-                                                  <option value="{{$grade->id}}">{{$grade->classname}}</option>     
+                                                  <option value="{{$grade->classname}}">{{$grade->classname}}</option>     
                                                     @endforeach
                                                   </select>
                                             </div>
@@ -51,7 +51,7 @@ Class Add
                                                 <select name="user_id" class="form-control" required>
                                                     <option value="">--Select--</option>
                                                     @foreach (App\Models\User::Teacher() as $user)
-                                                    <option value="{{$user->id}}">{{$user->name}}</option>     
+                                                    <option value="{{$user->name}}">{{$user->name}}</option>     
                                                     @endforeach
                                                   </select>
                                             </div>

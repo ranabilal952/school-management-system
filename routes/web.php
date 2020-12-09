@@ -14,11 +14,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('logout','AuthController@logout')->name('user.logout');
 });
 
-Route::view('promote', 'student.promote');
-Route::view('parient', 'student.parient');
-
-
-Route::view('teachercreate', 'teacher.teachercreate');
 Route::view('class', 'academic.grade');
 Route::view('syllabus', 'academic.syllabus');
 Route::view('assignment', 'academic.assignment');
@@ -62,16 +57,23 @@ Route::view('examschedule', 'examination.examschedule');
 
 
 Route::resource('user', 'UserController');
+Route::resource('school', 'SchoolController');
+
+
+
+
+
 Route::resource('student', 'StudentController');
 Route::resource('teacher', 'TeacherController');
 Route::resource('grade', 'GradeController');
 Route::resource('section', 'SectionController');
 Route::resource('subject', 'SubjectController');
 Route::resource('assignsubject', 'AssignsubjectController');
+Route::resource('promote', 'PromoteController');
 
 
 
 
-
+// Route::get('/view-grades','GradeController@getGradeInfo');
 
 

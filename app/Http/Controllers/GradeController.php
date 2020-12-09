@@ -17,6 +17,7 @@ class GradeController extends Controller
         return view('academic.grade');
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -88,5 +89,11 @@ class GradeController extends Controller
         $grade->delete();
         toastr()->error('Class Name Deleted');
         return redirect()->back();
+    }
+
+    public function getGradeInfo()
+    {
+        $grade = Grade::all();
+        return view('academic.section')->with('grade',$grade);
     }
 }
