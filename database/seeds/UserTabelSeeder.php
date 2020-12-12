@@ -15,31 +15,31 @@ class UserTabelSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Admin',
-            'email' => 'moid@mail.com',
+            'name' => 'Rana',
+            'email' => 'admin@mail.com',
             'password' => '1234',
-            'type' =>'1'
+            'type' =>'superadmin'
         ]);  
        
         User::create([
-            'name' => 'Teacher',
-            'email' => 'teacher@mail.com',
+            'name' => 'Bilal',
+            'email' => 'moid@mail.com',
             'password' => '1234',
-            'type' =>'2'
+            'type' =>'admin'
         ]);    
           
           User::create([
-            'name' => 'Student',
-            'email' => 'student@mail.com',
+            'name' => 'kaka',
+            'email' => 'teacher@mail.com',
             'password' => '1234',
-            'type' =>'3'
+            'type' =>'teacher'
         ]);
 
         User::create([
-            'name' => 'SuperAdmin',
-            'email' => 'admin@mail.com',
+            'name' => 'bashir',
+            'email' => 'student@mail.com',
             'password' => '1234',
-            'type' =>'4'
+            'type' =>'student'
         ]); 
         DB::table('grades')->insert([
     ['classname'=>'A'],

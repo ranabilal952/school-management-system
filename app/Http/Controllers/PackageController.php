@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\School;
+use App\Models\Package;
 use Illuminate\Http\Request;
 
-class SchoolController extends Controller
+class PackageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        return view('school.currentlist');
+        return view('school.schoolpackages');
     }
 
     /**
@@ -24,7 +24,7 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        return view('school.create');
+        return view('packages.create');
     }
 
     /**
@@ -35,18 +35,17 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-        School::create($request->all());
-        toastr()->success('Save');
+        Package::create($request->all());
         return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\School  $school
+     * @param  \App\Models\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function show(School $school)
+    public function show(Package $package)
     {
         //
     }
@@ -54,10 +53,10 @@ class SchoolController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\School  $school
+     * @param  \App\Models\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function edit(School $school)
+    public function edit(Package $package)
     {
         //
     }
@@ -66,10 +65,10 @@ class SchoolController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\School  $school
+     * @param  \App\Models\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, School $school)
+    public function update(Request $request, Package $package)
     {
         //
     }
@@ -77,10 +76,10 @@ class SchoolController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\School  $school
+     * @param  \App\Models\Package  $package
      * @return \Illuminate\Http\Response
      */
-    public function destroy(School $school)
+    public function destroy(Package $package)
     {
         //
     }

@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        return view('admin.mangment');
     }
 
     /**
@@ -95,6 +95,22 @@ class UserController extends Controller
     {
         $user->delete();
         toastr()->error('deleted');
+        return redirect()->back();
+    }
+    public function block($id){
+        $user = User::find($id);
+        $user->update([
+            'block'=>1,
+        ]);
+        toastr()->info('School Terminate','Done');
+        return redirect()->back();
+    }
+    public function unblock($id){
+        $user = User::find($id);
+        $user->update([
+            'block'=>0,
+        ]);
+        toastr()->info('School Active','Done');
         return redirect()->back();
     }
 }

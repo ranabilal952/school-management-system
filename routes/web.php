@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
 
@@ -55,6 +56,15 @@ Route::view('examlist', 'examination.examlist');
 Route::view('examattendence', 'examination.examattendence');
 Route::view('examschedule', 'examination.examschedule');
 
+Route::view('package', 'school.schoolpackages');
+Route::view('classlist', 'school.classlist');
+Route::view('studentlist', 'school.studentlist');
+Route::view('status', 'school.status');
+Route::view('takepayment', 'payment.takepayment');
+
+
+
+
 
 Route::resource('user', 'UserController');
 Route::resource('school', 'SchoolController');
@@ -70,10 +80,17 @@ Route::resource('section', 'SectionController');
 Route::resource('subject', 'SubjectController');
 Route::resource('assignsubject', 'AssignsubjectController');
 Route::resource('promote', 'PromoteController');
+Route::resource('package', 'PackageController');
 
 
-
+Route::get('block/{id}/user','UserController@block')->name('block');
+Route::get('unblock/{id}/user','UserController@unblock')->name('unblock');
 
 // Route::get('/view-grades','GradeController@getGradeInfo');
 
-
+Route::get('/cd', function() {
+    Artisan::call('config:cache');
+    Artisan::call('migrate:refresh');
+    Artisan::call('db:seed', [ '--class' => DatabaseSeeder::class]);
+    return 'DONE';
+});

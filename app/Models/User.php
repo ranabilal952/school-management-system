@@ -7,6 +7,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Cache;
+
 
 class User extends Authenticatable
 {
@@ -18,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','type','designation','gender','religion','dob',
+        'name', 'email', 'password','type','block','school_name','school_address','school_email','package','designation','gender','religion','dob',
         'phone','address','join_date','image','blood_group','student_phone','state','teacher_id','grade_id',
         'section_id','idcard','rollno','extra','remarks','father_name','mother_name','father_profession',
         'father_phone'
@@ -50,19 +52,46 @@ class User extends Authenticatable
     {
     return (new static)->get();
     }
- 
+
+    public static function Superadmin()
+    {
+    return (new static)::where('type','superadmin')->get();
+    } 
+
+   public static function School()
+   {
+   return (new static)::where('type','admin')->get();
+   } 
+
    public static function Teacher()
    {
-   return (new static)::where('type','2')->get();
+   return (new static)::where('type','teacher')->get();
    } 
+   
    public static function Student()
    {
-   return (new static)::where('type','3')->get();
+   return (new static)::where('type','student')->get();
    }
-    public static function Superadmin()
-   {
-   return (new static)::where('type','4')->get();
-   } 
+
+
+
+
+
+   
+   
+   public function isOnline(){
+    return Cache::has('user-is-online-'. $this->id);
+}   
+
+
+
+
+
+
+
+
+
+
    public function setImageAttribute($value)
    {    
       $this->attributes['image'] = ImageHelper::saveImage($value,'/images/teacher/');
